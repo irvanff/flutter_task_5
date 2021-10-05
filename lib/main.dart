@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task_5/Homepage/home.dart';
+import 'package:flutter_task_5/widget/cust_fab.dart';
+import 'package:flutter_task_5/widget/cust_navbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,8 +51,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -60,11 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title),
-        ),
-        body: const Home());
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+      ),
+      body: const Home(),
+      floatingActionButton: const CustomFAB(),
+      bottomNavigationBar: const CustomNavbar(),
+    );
   }
 }

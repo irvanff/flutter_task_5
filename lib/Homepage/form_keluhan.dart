@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task_5/model/user.dart';
+import 'package:flutter_task_5/widget/cust_fab.dart';
 import 'package:flutter_task_5/widget/custom_field.dart';
 
 class FormKeluhan extends StatefulWidget {
@@ -17,6 +18,7 @@ class _FormKeluhanState extends State<FormKeluhan> {
   final TextEditingController _controllerImage = new TextEditingController();
   final TextEditingController _controllerKeluhan = new TextEditingController();
   final TextEditingController _controllerTelp = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +31,34 @@ class _FormKeluhanState extends State<FormKeluhan> {
         child: ListView(
           children: <Widget>[
             CustomField(
+              controller: _controllerImage,
+              labelText: 'Url Gambar',
+              keyboardType: TextInputType.url,
+            ),
+            CustomField(
               controller: _controllerNama,
               labelText: 'nama',
               keyboardType: TextInputType.name,
+            ),
+            CustomField(
+              controller: _controllerEmail,
+              labelText: 'Email',
+              keyboardType: TextInputType.emailAddress,
+            ),
+            CustomField(
+              controller: _controllerAlamat,
+              labelText: 'Alamat',
+              keyboardType: TextInputType.streetAddress,
+            ),
+            CustomField(
+              controller: _controllerKeluhan,
+              labelText: 'Keluhan',
+              maxLines: 10,
+            ),
+            CustomField(
+              controller: _controllerTelp,
+              labelText: 'Nomor Telepon',
+              keyboardType: TextInputType.phone,
             ),
           ],
         ),

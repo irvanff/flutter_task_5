@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task_5/Homepage/form_keluhan.dart';
 import 'package:flutter_task_5/model/user.dart';
 import 'package:flutter_task_5/model/data.dart';
 
@@ -29,6 +30,12 @@ class Home extends StatelessWidget {
               trailing: IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.delete),
+              ),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const FormKeluhan(),
+                ),
               ),
             ),
           ),
