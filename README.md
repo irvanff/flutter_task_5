@@ -1,6 +1,10 @@
 # flutter_task_5
 
-A new Flutter project.
+Team :
+
+Aditya Bayu Aji
+
+Irvan Firmansyah
 
 ## Getting Started
 
