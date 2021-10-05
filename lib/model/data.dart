@@ -22,5 +22,10 @@ class Data {
         email: 'Fajarbintang@mail.com',
         alamat: 'jl.gunung raya no 6',
         noTelp: 08633375394745),
+    Users(
+        nama: 'ainan',
+        email: 'ainanadit@mail.com',
+        alamat: 'jl.jati raya no 3',
+        noTelp: 085834394989),
   ];
 }
