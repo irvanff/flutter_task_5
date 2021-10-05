@@ -8,24 +8,33 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        primary: false,
-        shrinkWrap: true,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 8.0,
-        ),
-        itemBuilder: (BuildContext context, int index) {
-          Users user = Data.user[index];
-          return Card(
+      primary: false,
+      shrinkWrap: true,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 8.0,
+      ),
+      itemBuilder: (BuildContext context, int index) {
+        Users prof = Data.user[index];
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(20.0),
+          child: Card(
             child: ListTile(
               leading: CircleAvatar(
-                backgroundImage: NetworkImage(user.imgpro),
+                backgroundImage: NetworkImage(prof.imgpro),
               ),
               title: Text(
-                user.nama,
-                style: const TextStyle(fontSize: 25.0),
+                prof.nama,
+                style: const TextStyle(fontSize: 20.0),
+              ),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.delete),
               ),
             ),
-          );
-        });
+          ),
+        );
+      },
+      itemCount: Data.user.length,
+    );
   }
 }
