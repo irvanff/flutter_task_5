@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-
 import '/model/user.dart';
 
 class ModelProvider extends ChangeNotifier {

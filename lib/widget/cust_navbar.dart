@@ -13,10 +13,9 @@ class CustomNavbar extends StatefulWidget {
 class _CustomNavbarState extends State<CustomNavbar> {
   final tabs = [
     const Home(),
-    const FormKeluhan(),
+    FormKeluhan(),
     const Detail(),
   ];
-  int _selectedItem = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,6 @@ class _CustomNavbarState extends State<CustomNavbar> {
       ],
       onChange: (val) {
         setState(() {
-          _selectedItem = val;
           tabs[val];
         });
       },

@@ -1,25 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task_5/model/user.dart';
 import 'package:flutter_task_5/provider/model_provider.dart';
-import 'package:flutter_task_5/widget/cust_fab.dart';
 import 'package:flutter_task_5/widget/custom_field.dart';
 import 'package:provider/provider.dart';
 
-class FormKeluhan extends StatefulWidget {
-  const FormKeluhan(
-      {Key? key, this.nama, this.email, this.alamat, this.telp, this.image})
-      : super(key: key);
-  final String? nama;
-  final String? email;
-  final String? alamat;
-  final String? image;
-  final String? telp;
+class FormKeluhan extends StatelessWidget {
+  FormKeluhan({Key? key}) : super(key: key);
 
-  @override
-  _FormKeluhanState createState() => _FormKeluhanState();
-}
-
-class _FormKeluhanState extends State<FormKeluhan> {
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
   final TextEditingController _controllerNama = TextEditingController();
   final TextEditingController _controllerEmail = TextEditingController();
@@ -137,46 +124,50 @@ class _FormKeluhanState extends State<FormKeluhan> {
     });
   }
 
-  Widget _delButton(int index) {
-    return Consumer<ModelProvider>(builder: (
-      BuildContext context,
-      ModelProvider value,
-      Widget? child,
-    ) {
-      return ElevatedButton(
-        onPressed: () {
-          value.deleteUser(index);
-          Navigator.pop(context);
-        },
-        child: const Text('Delete'),
-      );
-    });
+  Widget _deleteButton(int index) {
+    return Consumer<ModelProvider>(
+      builder: (
+        BuildContext context,
+        ModelProvider value,
+        Widget? child,
+      ) {
+        return ElevatedButton(
+          onPressed: () {
+            value.deleteUser(index);
+            Navigator.pop(context);
+          },
+          child: const Text('Delete'),
+        );
+      },
+    );
   }
 
-  Widget _editButton(int index, Users users) {
-    return Consumer<ModelProvider>(builder: (
-      BuildContext context,
-      ModelProvider value,
-      Widget? child,
-    ) {
-      return ElevatedButton(
-        onPressed: () {
-          value.editUser(
-            index,
-            Users(
-              nama: _controllerNama.text,
-              email: _controllerEmail.text,
-              alamat: _controllerAlamat.text,
-              keluhan: _controllerKeluhan.text,
-              imgpro: _controllerImage.text,
-              noTelp: _controllerTelp.text,
-            ),
-          );
-          Navigator.pop(context);
-        },
-        child: const Text('Edit'),
-      );
-    });
+  Widget _editButton(int index, Users user) {
+    return Consumer<ModelProvider>(
+      builder: (
+        BuildContext context,
+        ModelProvider value,
+        Widget? child,
+      ) {
+        return ElevatedButton(
+          onPressed: () {
+            value.editUser(
+              index,
+              Users(
+                nama: _controllerNama.text,
+                email: _controllerEmail.text,
+                alamat: _controllerAlamat.text,
+                keluhan: _controllerKeluhan.text,
+                imgpro: _controllerImage.text,
+                noTelp: _controllerTelp.text,
+              ),
+            );
+            Navigator.pop(context);
+          },
+          child: const Text('Edit'),
+        );
+      },
+    );
   }
 
   Widget _sendButton(int? index, Users? users) {
@@ -193,14 +184,14 @@ class _FormKeluhanState extends State<FormKeluhan> {
         if (index != null && users != null)
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _delButton(index),
+              padding: const EdgeInsets.symmetric(),
+              child: _deleteButton(index),
             ),
           ),
         if (index != null && users != null)
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(),
               child: _editButton(index, users),
             ),
           ),

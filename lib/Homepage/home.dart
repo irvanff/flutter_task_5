@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task_5/Homepage/form_keluhan.dart';
 import 'package:flutter_task_5/model/user.dart';
-import 'package:flutter_task_5/model/data.dart';
 import 'package:flutter_task_5/provider/model_provider.dart';
 import 'package:flutter_task_5/widget/cust_fab.dart';
 import 'package:flutter_task_5/widget/cuts_botnav.dart';
@@ -56,9 +55,10 @@ class Home extends StatelessWidget {
       ),
       title: Text(user.nama),
       subtitle: Text(user.email),
+      trailing: Text(user.keluhan),
       onTap: () => showDialog(
         context: context,
-        builder: (_) => const FormKeluhan(),
+        builder: (_) => FormKeluhan(),
         routeSettings: RouteSettings(
           arguments: <String, dynamic>{
             'index': index,

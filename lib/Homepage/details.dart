@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_5/model/user.dart';
-import 'package:flutter_task_5/widget/cust_fab.dart';
 import 'package:flutter_task_5/widget/custom_field.dart';
 
 class Detail extends StatefulWidget {

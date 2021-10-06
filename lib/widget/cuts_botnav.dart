@@ -9,7 +9,7 @@ class CustomBottomNavbar extends StatelessWidget {
   final int _currentIndex = 0;
   final tabs = [
     const Home(),
-    const FormKeluhan(),
+    FormKeluhan(),
     const Detail(),
   ];
   @override

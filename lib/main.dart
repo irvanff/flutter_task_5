@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_5/Homepage/details.dart';
-import 'package:flutter_task_5/Homepage/form_keluhan.dart';
-import 'package:flutter_task_5/Homepage/home.dart';
+import 'package:flutter_task_5/model/route.dart';
 import 'package:flutter_task_5/provider/model_provider.dart';
-import 'package:flutter_task_5/widget/cust_fab.dart';
-import 'package:flutter_task_5/widget/cust_navbar.dart';
-import 'package:flutter_task_5/widget/cuts_botnav.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -66,26 +61,15 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return MultiProvider(
-      providers: <SingleChildWidget>[
+      providers: <SingleChildStatelessWidget>[
         ChangeNotifierProvider(
           create: (_) => ModelProvider(),
         )
       ],
       child: MaterialApp(
-        routes: Route.routes,
-        initialRoute: Route.home,
+        routes: Routes.routes,
+        initialRoute: Routes.home,
       ),
     );
   }
-}
-
-class Route {
-  static const String home = '/home';
-  static const String complain = '/form';
-  static const String details = '/details';
-  static final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
-    home: (_) => const Home(),
-    complain: (_) => const FormKeluhan(),
-    details: (_) => const Detail(),
-  };
 }

@@ -15,7 +15,7 @@ class CustomFAB extends StatelessWidget {
       onPressed: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (_) => const FormKeluhan(),
+          builder: (_) => FormKeluhan(),
         ),
       ),
     );
