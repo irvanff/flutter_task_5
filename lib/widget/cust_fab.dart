@@ -14,7 +14,9 @@ class CustomFAB extends StatelessWidget {
       backgroundColor: Colors.amber,
       onPressed: () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (_) => const FormKeluhan()),
+        MaterialPageRoute(
+          builder: (_) => const FormKeluhan(),
+        ),
       ),
     );
   }

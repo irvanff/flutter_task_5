@@ -5,18 +5,13 @@ import 'package:flutter_task_5/widget/custom_field.dart';
 
 class FormKeluhan extends StatefulWidget {
   const FormKeluhan(
-      {Key? key,
-      required this.nama,
-      required this.email,
-      required this.alamat,
-      required this.telp,
-      required this.image})
+      {Key? key, this.nama, this.email, this.alamat, this.telp, this.image})
       : super(key: key);
-  final String nama;
-  final String email;
-  final String alamat;
-  final String image;
-  final int telp;
+  final String? nama;
+  final String? email;
+  final String? alamat;
+  final String? image;
+  final int? telp;
 
   @override
   _FormKeluhanState createState() => _FormKeluhanState();

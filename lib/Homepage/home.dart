@@ -34,12 +34,13 @@ class Home extends StatelessWidget {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (_) => FormKeluhan(
-                        nama: prof.nama,
-                        email: prof.email,
-                        alamat: prof.alamat,
-                        telp: prof.noTelp,
-                        image: prof.imgpro)),
+                  builder: (_) => FormKeluhan(
+                      nama: prof.nama,
+                      email: prof.email,
+                      alamat: prof.alamat,
+                      telp: prof.noTelp,
+                      image: prof.imgpro),
+                ),
               ),
             ),
           ),
