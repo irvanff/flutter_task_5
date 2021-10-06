@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task_5/Homepage/home.dart';
 import 'package:flutter_task_5/widget/cust_fab.dart';
 import 'package:flutter_task_5/widget/cust_navbar.dart';
+import 'package:flutter_task_5/widget/cuts_botnav.dart';
 
 void main() {
   runApp(const MyApp());
@@ -64,10 +65,11 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        backgroundColor: Colors.amber,
       ),
       body: const Home(),
       floatingActionButton: const CustomFAB(),
-      bottomNavigationBar: const CustomNavbar(),
+      bottomNavigationBar: const CustomBottomNavbar(),
     );
   }
 }

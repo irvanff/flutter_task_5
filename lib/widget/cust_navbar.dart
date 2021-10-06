@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task_5/Homepage/details.dart';
+import 'package:flutter_task_5/Homepage/form_keluhan.dart';
+import 'package:flutter_task_5/Homepage/home.dart';
 
 class CustomNavbar extends StatefulWidget {
   const CustomNavbar({Key? key}) : super(key: key);
@@ -8,10 +11,16 @@ class CustomNavbar extends StatefulWidget {
 }
 
 class _CustomNavbarState extends State<CustomNavbar> {
+  final tabs = [
+    const Home(),
+    const FormKeluhan(),
+    const Detail(),
+  ];
   int _selectedItem = 0;
+
   @override
   Widget build(BuildContext context) {
-    return CustomBottomNavbar(
+    return CustomBotNavbar(
       iconList: const [
         Icons.person,
         Icons.search,
@@ -20,19 +29,20 @@ class _CustomNavbarState extends State<CustomNavbar> {
       onChange: (val) {
         setState(() {
           _selectedItem = val;
+          tabs[val];
         });
       },
-      defaultSelectedIndex: 1,
+      defaultSelectedIndex: 0,
     );
   }
 }
 
-class CustomBottomNavbar extends StatefulWidget {
+class CustomBotNavbar extends StatefulWidget {
   final int defaultSelectedIndex;
   final Function(int) onChange;
   final List<IconData> iconList;
 
-  const CustomBottomNavbar(
+  const CustomBotNavbar(
       {Key? key,
       this.defaultSelectedIndex = 0,
       required this.iconList,
@@ -40,10 +50,10 @@ class CustomBottomNavbar extends StatefulWidget {
       : super(key: key);
 
   @override
-  _CustomBottomNavbarState createState() => _CustomBottomNavbarState();
+  _CustomBotNavbarState createState() => _CustomBotNavbarState();
 }
 
-class _CustomBottomNavbarState extends State<CustomBottomNavbar> {
+class _CustomBotNavbarState extends State<CustomBotNavbar> {
   int _selectedIndex = 0;
   List<IconData> _iconList = [];
 
@@ -79,11 +89,11 @@ class _CustomBottomNavbarState extends State<CustomBottomNavbar> {
         decoration: index == _selectedIndex
             ? BoxDecoration(
                 border: const Border(
-                  bottom: BorderSide(width: 4, color: Colors.indigo),
+                  bottom: BorderSide(width: 4, color: Colors.amber),
                 ),
                 gradient: LinearGradient(colors: [
-                  Colors.deepPurple.withOpacity(0.3),
-                  Colors.deepPurple.withOpacity(0.5),
+                  Colors.amber.withOpacity(0.3),
+                  Colors.amber.withOpacity(0.5),
                 ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
               )
             : const BoxDecoration(),
