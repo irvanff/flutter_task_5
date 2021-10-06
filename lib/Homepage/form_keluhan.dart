@@ -4,7 +4,19 @@ import 'package:flutter_task_5/widget/cust_fab.dart';
 import 'package:flutter_task_5/widget/custom_field.dart';
 
 class FormKeluhan extends StatefulWidget {
-  const FormKeluhan({Key? key}) : super(key: key);
+  const FormKeluhan(
+      {Key? key,
+      required this.nama,
+      required this.email,
+      required this.alamat,
+      required this.telp,
+      required this.image})
+      : super(key: key);
+  final String nama;
+  final String email;
+  final String alamat;
+  final String image;
+  final int telp;
 
   @override
   _FormKeluhanState createState() => _FormKeluhanState();
@@ -18,7 +30,6 @@ class _FormKeluhanState extends State<FormKeluhan> {
   final TextEditingController _controllerImage = new TextEditingController();
   final TextEditingController _controllerKeluhan = new TextEditingController();
   final TextEditingController _controllerTelp = new TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

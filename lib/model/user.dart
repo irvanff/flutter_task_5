@@ -1,18 +1,16 @@
 class Users {
   String nama;
-  String? email;
-  String? alamat;
-  String? pilihan;
+  String email;
+  String alamat;
   String imgpro;
-  String? keluhan;
-  int? noTelp;
+  String keluhan;
+  int noTelp;
 
   Users(
       {required this.nama,
-      this.email,
-      this.alamat,
-      this.keluhan,
-      this.pilihan,
+      required this.email,
+      required this.alamat,
+      required this.keluhan,
       required this.imgpro,
-      this.noTelp});
+      required this.noTelp});
 }
