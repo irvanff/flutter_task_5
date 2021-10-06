@@ -4,7 +4,7 @@ class Users {
   String alamat;
   String imgpro;
   String keluhan;
-  int noTelp;
+  String noTelp;
 
   Users(
       {required this.nama,

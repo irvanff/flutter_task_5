@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task_5/Homepage/details.dart';
+import 'package:flutter_task_5/Homepage/form_keluhan.dart';
 import 'package:flutter_task_5/Homepage/home.dart';
+import 'package:flutter_task_5/provider/model_provider.dart';
 import 'package:flutter_task_5/widget/cust_fab.dart';
 import 'package:flutter_task_5/widget/cust_navbar.dart';
 import 'package:flutter_task_5/widget/cuts_botnav.dart';
+import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -60,16 +65,27 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-        backgroundColor: Colors.amber,
+    return MultiProvider(
+      providers: <SingleChildWidget>[
+        ChangeNotifierProvider(
+          create: (_) => ModelProvider(),
+        )
+      ],
+      child: MaterialApp(
+        routes: Route.routes,
+        initialRoute: Route.home,
       ),
-      body: const Home(),
-      floatingActionButton: const CustomFAB(),
-      bottomNavigationBar: const CustomBottomNavbar(),
     );
   }
+}
+
+class Route {
+  static const String home = '/home';
+  static const String complain = '/form';
+  static const String details = '/details';
+  static final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
+    home: (_) => const Home(),
+    complain: (_) => const FormKeluhan(),
+    details: (_) => const Detail(),
+  };
 }
