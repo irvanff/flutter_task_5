@@ -34,7 +34,7 @@ class FormKeluhan extends StatelessWidget {
       }
     }
 
-    return Dialog(
+    return Card(
       child: Form(
         key: _keyForm,
         child: ListView(
