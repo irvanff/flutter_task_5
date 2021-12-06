@@ -27,23 +27,24 @@ class Home extends StatelessWidget {
           return const Center(
             child: Text('There is no complain yet'),
           );
+        } else {
+          return ListView.builder(
+            primary: false,
+            shrinkWrap: true,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 8.0,
+            ),
+            itemBuilder: (BuildContext context, int index) {
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: Card(
+                  child: _listTile(context, index, value.users[index]),
+                ),
+              );
+            },
+            itemCount: value.users.length,
+          );
         }
-        return ListView.builder(
-          primary: false,
-          shrinkWrap: true,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 8.0,
-          ),
-          itemBuilder: (BuildContext context, int index) {
-            return ClipRRect(
-              borderRadius: BorderRadius.circular(20.0),
-              child: Card(
-                child: _listTile(context, index, value.users[index]),
-              ),
-            );
-          },
-          itemCount: value.users.length,
-        );
       }),
     );
   }

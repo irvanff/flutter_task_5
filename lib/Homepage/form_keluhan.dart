@@ -34,63 +34,69 @@ class FormKeluhan extends StatelessWidget {
       }
     }
 
-    return Card(
-      child: Form(
-        key: _keyForm,
-        child: ListView(
-          shrinkWrap: true,
-          padding: const EdgeInsets.symmetric(),
-          children: <Widget>[
-            CustomField(
-                controller: _controllerNama,
-                labelText: 'Name',
-                validator: (String? value) {
-                  if (value?.isEmpty ?? true) {
-                    return 'required';
-                  }
-                }),
-            CustomField(
-                controller: _controllerEmail,
-                labelText: 'Email',
-                validator: (String? value) {
-                  if (value?.isEmpty ?? true) {
-                    return 'required';
-                  }
-                }),
-            CustomField(
-                controller: _controllerAlamat,
-                labelText: 'Address',
-                validator: (String? value) {
-                  if (value?.isEmpty ?? true) {
-                    return 'required';
-                  }
-                }),
-            CustomField(
-                controller: _controllerImage,
-                labelText: 'Image',
-                validator: (String? value) {
-                  if (value?.isEmpty ?? true) {
-                    return 'required';
-                  }
-                }),
-            CustomField(
-                controller: _controllerKeluhan,
-                labelText: 'Complain',
-                validator: (String? value) {
-                  if (value?.isEmpty ?? true) {
-                    return 'required';
-                  }
-                }),
-            CustomField(
-                controller: _controllerTelp,
-                labelText: 'Phone',
-                validator: (String? value) {
-                  if (value?.isEmpty ?? true) {
-                    return 'required';
-                  }
-                }),
-            _sendButton(index, user),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Form Keluhan'),
+        backgroundColor: Colors.amber,
+      ),
+      body: Card(
+        child: Form(
+          key: _keyForm,
+          child: ListView(
+            shrinkWrap: true,
+            padding: const EdgeInsets.symmetric(),
+            children: <Widget>[
+              CustomField(
+                  controller: _controllerNama,
+                  labelText: 'Name',
+                  validator: (String? value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'required';
+                    }
+                  }),
+              CustomField(
+                  controller: _controllerEmail,
+                  labelText: 'Email',
+                  validator: (String? value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'required';
+                    }
+                  }),
+              CustomField(
+                  controller: _controllerAlamat,
+                  labelText: 'Address',
+                  validator: (String? value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'required';
+                    }
+                  }),
+              CustomField(
+                  controller: _controllerImage,
+                  labelText: 'Image',
+                  validator: (String? value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'required';
+                    }
+                  }),
+              CustomField(
+                  controller: _controllerKeluhan,
+                  labelText: 'Complain',
+                  validator: (String? value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'required';
+                    }
+                  }),
+              CustomField(
+                  controller: _controllerTelp,
+                  labelText: 'Phone',
+                  validator: (String? value) {
+                    if (value?.isEmpty ?? true) {
+                      return 'required';
+                    }
+                  }),
+              _sendButton(index, user),
+            ],
+          ),
         ),
       ),
     );
